@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>即時災情通報平台</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="logo">災情即時通</div>
+      <nav class="links">
+        <a href="#report-form">立即通報</a>
+        <a href="#shelters">避難資訊</a>
+        <a href="#reports">最新災情</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__content">
+        <h1>掌握現場災情、守護彼此安全</h1>
+        <p>透過即時通報與照片分享，協助居民與救援單位快速掌握災情資訊。</p>
+        <a class="cta" href="#report-form">立即通報</a>
+      </div>
+    </section>
+
+    <section class="alerts">
+      <div class="container">
+        <h2>重要資訊</h2>
+        <div class="alerts__grid" id="alerts">
+          <article class="alert-card">
+            <h3>強降雨特報</h3>
+            <p>中央氣象局發布豪雨特報，請避免前往山區或低窪地帶。</p>
+          </article>
+          <article class="alert-card">
+            <h3>市府緊急聯絡專線</h3>
+            <p>台南市災害應變中心 06-298-9119，遇緊急情況請立即撥打。</p>
+          </article>
+          <article class="alert-card">
+            <h3>道路封閉資訊</h3>
+            <p>台1線 325K-330K 段因坍方封閉，請改道行駛。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-section" id="report-form">
+      <div class="container">
+        <h2>立即通報災情</h2>
+        <p>請盡可能提供完整資訊，並上傳現場照片以利研判。</p>
+        <form class="report-form" id="disaster-form">
+          <div class="form-field">
+            <label for="reporterName">通報人姓名</label>
+            <input type="text" id="reporterName" name="reporterName" placeholder="姓名或暱稱" required />
+          </div>
+          <div class="form-field">
+            <label for="contact">聯絡方式</label>
+            <input type="tel" id="contact" name="contact" placeholder="手機或市話" required />
+          </div>
+          <div class="form-field">
+            <label for="location">災害地點</label>
+            <input type="text" id="location" name="location" placeholder="例：台南市安平區中正路" required />
+          </div>
+          <div class="form-field">
+            <label for="category">災害類型</label>
+            <select id="category" name="category" required>
+              <option value="">請選擇</option>
+              <option value="淹水">淹水</option>
+              <option value="交通事故">交通事故</option>
+              <option value="建物受損">建物受損</option>
+              <option value="道路坍方">道路坍方</option>
+              <option value="停水停電">停水 / 停電</option>
+              <option value="其他">其他</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="description">災情描述</label>
+            <textarea id="description" name="description" rows="4" placeholder="請描述災情概況與需求" required></textarea>
+          </div>
+          <div class="form-field">
+            <label for="photo">現場照片</label>
+            <input type="file" id="photo" name="photo" accept="image/*" />
+          </div>
+          <div class="form-field form-field--actions">
+            <button type="submit">送出通報</button>
+            <button type="reset" class="secondary">清除表單</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="filters" id="reports">
+      <div class="container">
+        <h2>最新災情通報</h2>
+        <div class="filters__controls">
+          <label for="filter">災害類型篩選：</label>
+          <select id="filter">
+            <option value="all">全部</option>
+            <option value="淹水">淹水</option>
+            <option value="交通事故">交通事故</option>
+            <option value="建物受損">建物受損</option>
+            <option value="道路坍方">道路坍方</option>
+            <option value="停水停電">停水 / 停電</option>
+            <option value="其他">其他</option>
+          </select>
+        </div>
+        <div class="reports-list" id="reports-list"></div>
+      </div>
+    </section>
+
+    <section class="shelters" id="shelters">
+      <div class="container">
+        <h2>避難與資源資訊</h2>
+        <div class="shelters__grid">
+          <article class="shelter-card">
+            <h3>臨時收容所</h3>
+            <ul>
+              <li>台南市立體育館（東區中華東路三段332號）</li>
+              <li>永康復興國小（永康區中華一路5號）</li>
+              <li>安南和順國中（安南區長溪路三段500號）</li>
+            </ul>
+          </article>
+          <article class="shelter-card">
+            <h3>物資與補給</h3>
+            <ul>
+              <li>台南市社會局救助物資中心：06-299-5805</li>
+              <li>紅十字會台南分會：06-220-0361</li>
+              <li>民間物資募集平台連結</li>
+            </ul>
+          </article>
+          <article class="shelter-card">
+            <h3>防災宣導</h3>
+            <ul>
+              <li>颱風來襲前的防範要點</li>
+              <li>水災來臨時的避難動線規劃</li>
+              <li>社區自助防災隊聯繫方式</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>若有立即危險，請撥打 119 或 110。災情通報資料將同步提供給相關單位參考。</p>
+      <p>© 2024 災情即時通。資料僅供緊急應變使用。</p>
+    </div>
+  </footer>
+
+  <template id="report-card-template">
+    <article class="report-card">
+      <div class="report-card__header">
+        <span class="report-card__category"></span>
+        <time class="report-card__time"></time>
+      </div>
+      <h3 class="report-card__location"></h3>
+      <p class="report-card__description"></p>
+      <div class="report-card__footer">
+        <span class="report-card__reporter"></span>
+        <span class="report-card__contact"></span>
+      </div>
+      <img class="report-card__photo" alt="災情照片" hidden />
+    </article>
+  </template>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
